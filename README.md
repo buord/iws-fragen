@@ -58,4 +58,4 @@ geändert werden.
 Das war auch schon alles.
 
 ## Lizenz
-IWS-Fragen steht unter [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl.html).
+IWS-Fragen steht unter der [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl.html).
