@@ -1,0 +1,7 @@
+.iws-hidden {
+	display: none;
+}
+
+.iws-stripe {
+	background-color: rgba(0, 0, 0, .05);
+}
