@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="py-5 text-center">
-            <h1>I'm with stupid - Fragen</h1>
+            <img src="<?=url('assets/images/logo.png')?>">
         </div>
 
         <input type="text" id="iws-filter-input" class="form-control form-control-lg" value="" placeholder="Fragen filtern..." autofocus>

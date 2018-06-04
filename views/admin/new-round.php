@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <div class="py-5 text-center">
-            <h1>I'm with stupid - Neue Runde</h1>
+            <img src="<?=url('assets/images/logo.png')?>">
         </div>
 
         <form action="neue-runde" method="POST">
