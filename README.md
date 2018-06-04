@@ -16,7 +16,7 @@ Zunächst solltet ihr eine neue Datenbank anlegen (über die Kommandozeile, mit 
 mysql -uroot -p myiws < myiws.sql
 ```
 Falls du einen anderen Benutzernamen hast oder die Datenbank nicht `myiws` heißt, sollten die Werte natürlich entsprechend geändert werden.
-Bei geglücktem Import hast du du nun alle Fragen in der Tabelle (Stand: 24 Runden).
+Bei geglücktem Import hast du du nun alle Fragen und Antworten in der Tabelle (Stand: 24 Runden).
 
 
 ### Umgebungsvariablen angeben
