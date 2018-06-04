@@ -1,4 +1,4 @@
-# myIWS - 
+# myIWS - Der Meisterschlüssel für alle IWSler
 
 myIWS ist ein Tool, mit dem man leicht eine Übersicht über alle bisherigen Fragen aus allen Spielen bekommt, sodass man als Leiter/in nicht jedes Mal verzweifelt alle Threads durchgehen oder Gefahr laufen muss, eine Frage zu nehmen, die es bereits gab.
 
