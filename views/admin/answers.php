@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Antworten | I'm with stupid</title>
+    <title>Antworten | myIWS</title>
     <link rel="stylesheet" href="<?=url('assets/css/bootstrap.min.css')?>">
 </head>
 <body>

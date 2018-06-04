@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Fragen | I'm with stupid</title>
+    <title>Fragen | myIWS</title>
     <link rel="stylesheet" href="<?=url('assets/css/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?=url('assets/css/questions.css')?>">
 </head>

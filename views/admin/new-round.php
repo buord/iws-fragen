@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Neue Runde | I'm with stupid</title>
+    <title>Neue Runde | myIWS</title>
     <link rel="stylesheet" href="<?=url('assets/css/bootstrap.min.css')?>">
 </head>
 <body>
