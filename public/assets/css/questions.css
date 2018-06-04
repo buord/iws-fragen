@@ -1,0 +1,11 @@
+.iws-question-row {
+    cursor: pointer;
+}
+
+.iws-hidden {
+    display: none;
+}
+
+.iws-stripe {
+    background-color: rgba(0, 0, 0, .05);
+}

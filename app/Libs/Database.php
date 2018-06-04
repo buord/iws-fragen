@@ -15,7 +15,7 @@ class Database {
         $this->builder = new QueryBuilder();
     }
 
-    public function get_questions() {
+    public function get_all_questions() {
         $query = $this->builder->select('*')
                     ->from('questions')
                     ->get();
@@ -32,11 +32,26 @@ class Database {
                 'question' => $row['question'],
                 'season' => $row['season'],
                 'round' => $row['round'],
-                'question_number' => $question_numbers[$row['season']][$row['round']]++
+                'question_number' => $question_numbers[$row['season']][$row['round']]++,
+                'id' => $row['id']
             ];
         }
 
         return $questions;
+    }
+
+    public function get_question($id) {
+        $query = $this->builder->select('*')
+                    ->from('questions')
+                    ->where('id = ?')
+                    ->get();
+        $statement = $this->pdo->prepare($query);
+
+        $statement->execute([$id]);
+
+        $question = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return empty($question) ? $question : $question[0];
     }
 
     public function add_question($season, $round, $question) {
@@ -46,5 +61,35 @@ class Database {
         $statement = $this->pdo->prepare($query);
 
         $statement->execute([$season, $round, $question]);
+    }
+
+    public function add_answer($answer, $question_id, $picked) {
+        $query = $this->builder->insert_into('answers (answer, question_id, picked)')
+                    ->values('(?, ?, ?)')
+                    ->get();
+        $statement = $this->pdo->prepare($query);
+
+        $statement->execute([$answer, $question_id, $picked]);
+    }
+
+    public function get_answers($question_id) {
+        $query = $this->builder->select('*')
+                    ->from('answers')
+                    ->where('question_id = ?')
+                    ->get();
+        $statement = $this->pdo->prepare($query);
+        $answers = [];
+
+        $statement->execute([$question_id]);
+
+        foreach ($statement->fetchAll() as $row) {
+
+            $answers[] = [
+                'answer' => $row['answer'],
+                'picked' => $row['picked']
+            ];
+        }
+
+        return $answers;
     }
 }

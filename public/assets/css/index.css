@@ -1,0 +1,32 @@
+.iws-question-cell:hover {
+    background-color: rgba(0, 0, 0, .075);
+    cursor: pointer;
+}
+
+.iws-hidden {
+	display: none;
+}
+
+.iws-stripe {
+	background-color: rgba(0, 0, 0, .05);
+}
+
+.arrow-down {
+    background: url("../images/arrow-down.png") top right no-repeat;
+}
+
+.arrow-up {
+    background: url("../images/arrow-up.png") top right no-repeat;
+}
+
+.arrow-down .iws-answers {
+    display: none;
+}
+
+.iws-answers {
+    border-left: 2px solid skyblue;
+}
+
+.iws-answers .list-group-item {
+    background-color: transparent;
+}

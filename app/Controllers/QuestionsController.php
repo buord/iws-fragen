@@ -1,6 +1,6 @@
 <?php
 
-class HomeController {
+class QuestionsController {
     private $db;
 
     public function __construct() {
@@ -10,6 +10,6 @@ class HomeController {
     public function get() {
         $questions = $this->db->get_all_questions();
 
-        return view('index', compact('questions'));
+        return view('admin/questions', compact('questions'));
     }
 }

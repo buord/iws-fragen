@@ -7,17 +7,17 @@
     <meta charset="UTF-8">
     <title>Fragen | I'm with stupid</title>
     <link rel="stylesheet" href="<?=url('assets/css/bootstrap.min.css')?>">
-    <link rel="stylesheet" href="<?=url('assets/css/index.css')?>">
+    <link rel="stylesheet" href="<?=url('assets/css/questions.css')?>">
 </head>
 <body>
     <div class="container">
         <div class="py-5 text-center">
-            <h1>myIWS</h1>
+            <h1>I'm with stupid - Fragen</h1>
         </div>
 
         <input type="text" id="iws-filter-input" class="form-control form-control-lg" value="" placeholder="Fragen filtern..." autofocus>
 
-        <table id="iws-question-table" class="table table-striped">
+        <table id="iws-question-table" class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">Ausgabe</th>
@@ -32,14 +32,11 @@
             <?php
             foreach ($questions as $question) {
             ?>
-                <tr class="iws-question-row">
+                <tr class="iws-question-row" data-id="<?=$question['id']?>">
                     <td><?=escape($question['season'])?></td>
                     <td><?=escape($question['round'])?></td>
                     <td><?=escape($question['question_number'])?></td>
-                    <td class="iws-question-cell arrow-down" data-id="<?=$question['id']?>">
-                        <span class="iws-question pr-3"><?=nl2br(escape($question['question']))?></span>
-                        <div class="iws-answers py-3 px-3 my-2"></div>
-                    </td>
+                    <td class="iws-question-cell"><?=nl2br(escape($question['question']))?></td>
                 </tr>
 
             <?php
@@ -52,6 +49,6 @@
        
     </div>
 
-    <script src="<?=url('assets/js/index.js')?>"></script>
+    <script src="<?=url('assets/js/questions.js')?>"></script>
 </body>
 </html>

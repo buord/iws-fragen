@@ -31,7 +31,7 @@
 
             <input type="hidden" name="_token" value="<?=$_SESSION['_token']?>">
             <hr class="mb-4">
-            <button type="submit" class=" btn btn-primary">Abschicken</button>
+            <button type="submit" class="btn btn-primary">Abschicken</button>
         </form>
     </div>
 </body>

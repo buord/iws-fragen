@@ -5,7 +5,7 @@ class RoundController {
     public function get() {
         $_SESSION['_token'] = create_token(16);
 
-        return view('new-round/index');
+        return view('admin/new-round');
     }
 
     public function post() {
@@ -30,7 +30,7 @@ class RoundController {
             $db->add_question($season, $round, trim($question));
         }
 
-        view('new-round/feedback');
+        view('admin/new-round-feedback');
     }
 
     private function extract_questions($questions) {
