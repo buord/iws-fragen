@@ -41,7 +41,7 @@ DB_PASSWORD=meinpasswort
 
 ### .htpasswd anlegen
 
-Das Formular, womit man neue Runden in die Datenbank speichern kann, ist passwortgeschützt. Um euch selbst ein Passwort zu geben, gebt den folgenden Befehl in den Terminal ein:
+Das Admin-Verzeichnis ist passwortgeschützt. Um euch selbst ein Passwort zu geben, gebt den folgenden Befehl in den Terminal ein:
 
 ```sh
 sudo htpasswd /var/www/html/myiws/.htpasswd username
