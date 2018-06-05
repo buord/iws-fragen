@@ -19,8 +19,8 @@
     $questionCells.forEach(function($cell) {
         questions.push({
             "text": $cell.innerText,
-            "element": $cell,
-            "row": $cell.parentNode,
+            "$element": $cell,
+            "$row": $cell.parentNode,
             "visible": true
         });
     });
@@ -59,12 +59,12 @@
 
     function _render(question) {
         if (question.visible) {
-            question.row.classList.remove("iws-hidden");
+            question.$row.classList.remove("iws-hidden");
 
             
             if (lastInput === "") {
                 // No highlight, if input field is empty
-                question.element.innerHTML = _nl2br(question.text);
+                question.$element.innerHTML = _nl2br(question.text);
             } else {
  
                 // Mask special characters like dots and parentheses
@@ -72,18 +72,18 @@
                 // Highlight filtered text
                 let regexp = RegExp("(" + masked + ")", "ig");
                 let highlight = "<b>$1</b>";
-                question.element.innerHTML = _nl2br(question.text.replace(regexp, highlight));
+                question.$element.innerHTML = _nl2br(question.text.replace(regexp, highlight));
             }
 
             // Workaround for correct table stripes (4/4)
             if (nthStripe++ % 2 === 0) {
-                question.row.classList.remove("iws-stripe");
+                question.$row.classList.remove("iws-stripe");
             } else {
-                question.row.classList.add("iws-stripe");
+                question.$row.classList.add("iws-stripe");
             }
 
         } else {
-            question.row.classList.add("iws-hidden");
+            question.$row.classList.add("iws-hidden");
         }
     }
 

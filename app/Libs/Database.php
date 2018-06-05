@@ -5,21 +5,19 @@ class Database {
     private $user = DB_USERNAME;
     private $password = DB_PASSWORD;
     private $pdo;
-    private $builder;
 
     function __construct() {
         $this->pdo = new PDO($this->dsn, $this->user, $this->password, array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
         ));
-        $this->builder = new QueryBuilder();
     }
 
     public function get_all_questions() {
-        $query = $this->builder->select('*')
-                    ->from('questions')
-                    ->get();
-        $statement = $this->pdo->query($query);
+        $statement = $this->pdo->query("
+            SELECT *
+            FROM questions
+        ");
         $questions = [];
         $question_numbers = [];
 
@@ -41,11 +39,11 @@ class Database {
     }
 
     public function get_question($id) {
-        $query = $this->builder->select('*')
-                    ->from('questions')
-                    ->where('id = ?')
-                    ->get();
-        $statement = $this->pdo->prepare($query);
+        $statement = $this->pdo->prepare("
+            SELECT *
+            FROM questions
+            WHERE id = ?
+        ");
 
         $statement->execute([$id]);
 
@@ -55,29 +53,29 @@ class Database {
     }
 
     public function add_question($season, $round, $question) {
-        $query = $this->builder->insert_into('questions (season, round, question)')
-                    ->values('(?, ?, ?)')
-                    ->get();
-        $statement = $this->pdo->prepare($query);
+        $statement = $this->pdo->prepare("
+            INSERT INTO questions (season, round, question)
+            VALUES (?, ?, ?)
+        ");
 
         $statement->execute([$season, $round, $question]);
     }
 
     public function add_answer($answer, $question_id, $picked) {
-        $query = $this->builder->insert_into('answers (answer, question_id, picked)')
-                    ->values('(?, ?, ?)')
-                    ->get();
-        $statement = $this->pdo->prepare($query);
+        $statement = $this->pdo->prepare("
+            INSERT INTO answers (answer, question_id, picked)
+            VALUES (?, ?, ?)
+        ");
 
         $statement->execute([$answer, $question_id, $picked]);
     }
 
     public function get_answers($question_id) {
-        $query = $this->builder->select('*')
-                    ->from('answers')
-                    ->where('question_id = ?')
-                    ->get();
-        $statement = $this->pdo->prepare($query);
+        $statement = $this->pdo->prepare("
+            SELECT *
+            FROM answers
+            WHERE question_id = ?
+        ");
         $answers = [];
 
         $statement->execute([$question_id]);

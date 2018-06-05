@@ -2,7 +2,6 @@
 
 session_start();
 
-require_once 'app/Libs/QueryBuilder.php';
 require_once 'app/Libs/Database.php';
 require_once 'app/Libs/Route.php';
 

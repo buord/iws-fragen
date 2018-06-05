@@ -22,8 +22,8 @@
 
         questions.push({
             "text": $questionWrapper.innerText,
-            "element": $questionWrapper,
-            "row": $cell.parentNode,
+            "$element": $questionWrapper,
+            "$row": $cell.parentNode,
             "visible": true
         });
 
@@ -62,12 +62,12 @@
 
     function _render(question) {
         if (question.visible) {
-            question.row.classList.remove("iws-hidden");
+            question.$row.classList.remove("iws-hidden");
 
             
             if (lastInput === "") {
                 // No highlight, if input field is empty
-                question.element.innerHTML = _nl2br(question.text);
+                question.$element.innerHTML = _nl2br(question.text);
             } else {
  
                 // Mask special characters like dots and parentheses
@@ -75,18 +75,18 @@
                 // Highlight filtered text
                 let regexp = RegExp("(" + masked + ")", "ig");
                 let highlight = "<b>$1</b>";
-                question.element.innerHTML = _nl2br(question.text.replace(regexp, highlight));
+                question.$element.innerHTML = _nl2br(question.text.replace(regexp, highlight));
             }
 
             // Workaround for correct table stripes (4/4)
             if (nthStripe++ % 2 === 0) {
-                question.row.classList.remove("iws-stripe");
+                question.$row.classList.remove("iws-stripe");
             } else {
-                question.row.classList.add("iws-stripe");
+                question.$row.classList.add("iws-stripe");
             }
 
         } else {
-            question.row.classList.add("iws-hidden");
+            question.$row.classList.add("iws-hidden");
         }
     }
 
@@ -109,9 +109,9 @@
                 _getAnswers(id, (function (response) {
                     // directly cache the answers
                     answers[id] = response;
-                    let answersWrapper = this.querySelector(".iws-answers");
+                    let $answersWrapper = this.querySelector(".iws-answers");
 
-                    _insertAnswers(answersWrapper, response);
+                    _insertAnswers($answersWrapper, response);
                 }).bind(this));
             }
         } else {
@@ -138,30 +138,30 @@
         request.send();
     }
 
-    function _insertAnswers(target, answers) {
+    function _insertAnswers($target, answers) {
 
         if (answers.length === 0) {
-            target.textContent = "Für diese Frage sind keine Antworten hinterlegt.";
+            $target.textContent = "Für diese Frage sind keine Antworten hinterlegt.";
             return false;
         }
 
-        let ul = document.createElement("ul");
-        ul.className = "list-group list-group-flush mr-5";
+        let $ul = document.createElement("ul");
+        $ul.className = "list-group list-group-flush mr-5";
 
         answers.forEach(function (answer) {
-            let li = document.createElement("li");
-            li.className = "list-group-item";
+            let $li = document.createElement("li");
+            $li.className = "list-group-item";
 
-            let span = document.createElement("span");
-            span.className = "badge badge-info badge-pill mr-2 px-3";
+            let $span = document.createElement("span");
+            $span.className = "badge badge-info badge-pill mr-2 px-3";
 
-            span.appendChild(document.createTextNode(answer.picked));
-            li.appendChild(span);
-            li.appendChild(document.createTextNode(answer.answer));
-            ul.appendChild(li);
+            $span.appendChild(document.createTextNode(answer.picked));
+            $li.appendChild($span);
+            $li.appendChild(document.createTextNode(answer.answer));
+            $ul.appendChild($li);
         });
 
-        target.appendChild(ul);
+        $target.appendChild($ul);
 
     }
 
