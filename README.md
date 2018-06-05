@@ -1,4 +1,4 @@
-# myIWS - 
+# myIWS - Ein Zuhause für alle IWSler
 
 myIWS ist ein Tool, mit dem man leicht eine Übersicht über alle bisherigen Fragen aus allen Spielen bekommt, sodass man als Leiter/in nicht jedes Mal verzweifelt alle Threads durchgehen oder Gefahr laufen muss, eine Frage zu nehmen, die es bereits gab.
 
@@ -16,7 +16,7 @@ Zunächst solltet ihr eine neue Datenbank anlegen (über die Kommandozeile, mit 
 mysql -uroot -p myiws < myiws.sql
 ```
 Falls du einen anderen Benutzernamen hast oder die Datenbank nicht `myiws` heißt, sollten die Werte natürlich entsprechend geändert werden.
-Bei geglücktem Import hast du du nun alle Fragen in der Tabelle (Stand: 24 Runden).
+Bei geglücktem Import hast du du nun alle Fragen und Antworten in der Tabelle (Stand: 24 Runden).
 
 
 ### Umgebungsvariablen angeben
@@ -58,4 +58,4 @@ geändert werden.
 Das war auch schon alles. Nun hast du alles lokal und kannst das Tool auch offline benutzen.
 
 ## Lizenz
-IWS-Fragen steht unter der [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl.html).
+myIWS steht unter der [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl.html).
