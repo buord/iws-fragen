@@ -7,7 +7,7 @@ RewriteRule ^(.+)$ index.php [QSA]
 
 Options -Indexes
 
-# Password protext the new round page
+# Password protect the admin directory
 # Source: https://stackoverflow.com/questions/14603568/password-protect-a-specific-url
 # Do the regex check against the URI here, if match, set the "require_auth" var
 SetEnvIf Request_URI admin/(.*)$ require_auth=true

@@ -30,11 +30,10 @@ class AnswersController {
             return false;
         }
 
-        $db = new Database;
         $answers = $this->extract_answers($_POST['answers']);
 
         foreach ($answers as $answer) {
-            $db->add_answer(trim($answer[0]), $id, $answer[1]);
+            $this->db->add_answer(trim($answer[0]), $id, $answer[1]);
         }
 
         view('admin/answers-feedback', compact('id'));
