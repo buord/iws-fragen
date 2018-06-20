@@ -35,7 +35,7 @@ class Database {
             ];
         }
 
-        return $questions;
+        return array_reverse($questions);
     }
 
     public function get_question($id) {
